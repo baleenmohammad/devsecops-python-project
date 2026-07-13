@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    container_name: devsecops-python-container
+    ports:
+      - "5000:5000"
+    restart: unless-stopped

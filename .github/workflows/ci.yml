@@ -46,12 +46,9 @@ jobs:
         run: |
           docker build -t devsecops-python .
 
-      - name: Trivy Docker Image Scan
-        uses: aquasecurity/trivy-action@0.28.0
-        with:
-          image-ref: devsecops-python
-          format: table
-          exit-code: 0
-          ignore-unfixed: true
-          vuln-type: os,library
-          severity: CRITICAL,HIGH
+      - name: Run Trivy
+  uses: aquasecurity/trivy-action@v0.33.1
+  with:
+    scan-type: fs
+    scan-ref: .
+        

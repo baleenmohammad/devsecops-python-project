@@ -48,7 +48,5 @@ jobs:
           sudo apt-get install wget -y
           wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.66.0_Linux-64bit.deb
           sudo dpkg -i trivy_0.66.0_Linux-64bit.deb
-
-      - name: Trivy Docker Scan
-        run: |
-          trivy image devsecops-python
+- name: Run pip-audit
+        run: pip-audit -r requirements.txt

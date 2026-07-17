@@ -11,11 +11,9 @@ on:
 
 jobs:
   security-and-build:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Repository auschecken
         uses: actions/checkout@v4
 
@@ -36,21 +34,15 @@ jobs:
 
       - name: Python Dependency Scan
         run: |
-          pip-audit
+          pip-audit -r requirements.txt
 
       - name: Docker Image bauen
         run: |
           docker build -t devsecops-python .
 
-      - - name: Run Trivy Scan
+      - name: Run Trivy Scan
         uses: aquasecurity/trivy-action@0.24.0
         with:
           image-ref: devsecops-python
           format: table
           exit-code: 0
-
-
-        
-
-
--

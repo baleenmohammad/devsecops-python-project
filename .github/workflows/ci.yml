@@ -41,7 +41,7 @@ jobs:
           docker build -t devsecops-python .
 
       - name: Run Trivy Scan
-       uses: aquasecurity/trivy-action@master
+       uses: aquasecurity/trivy-action@v0.10.0
        with:
        image-ref: devsecops-python
        format: table
